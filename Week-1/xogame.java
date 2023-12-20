@@ -108,50 +108,39 @@ class xogame {
         System.out.println();
     }
 
-    public static int rightdiagonal(int n, int[][] board)
-    {
-        int flag = 1;
-        for (int i = 0; i < n; i++)
-	 {
-           for (int j = 0; j <n; j++) {
-                if (board[i][j] == board[0][0]) 
-		{
-                    flag++;
-                }
-                else
-		{
-                 return 0;
-                }
-                if(flag==n)
-		{
-		return 1;
-		}
-            }
-        } return 0;
+   public static int rightdiagonal(int n, int[][] board) {
+    int flag = 1;
+    for (int i = 1; i < n; i++) {
+        if (board[i][i] == board[0][0]) {
+            flag++;
+        } else {
+            return 0;
+        }
+        if (flag == n) {
+            return 1;
+        }
     }
+    return 0;
+}
 
-    public static int leftdiagonal(int n, int[][] board) {
-        int flag = 1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j <n; j++) 
-		{
-                if (board[i][j] == board[0][n - 1]) {
-                    flag++;
-                }
-                else
-		{
-		return 0;
-                } 
-		if(flag==n)
-		{
-		return 1;
-		}
-            }
-        } return 0;
+public static int leftdiagonal(int n, int[][] board) {
+    int flag = 1;
+    for (int i = 1; i < n; i++) {
+        if (board[i][n - 1 - i] == board[0][n - 1]) {
+            flag++;
+        } else {
+            return 0;
+        }
+        if (flag == n) {
+            return 1;
+        }
     }
+    return 0;
+}
+
 
     public static int rowcheck(int n, int[][] board) {
-        int flag = 1;
+        int flag = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < n; j++) {
                 if (board[i][0] == board[i][j]) {
@@ -169,23 +158,24 @@ class xogame {
         return 0;
     }
 
-    public static int colcheck(int n, int[][] board) 
-    {
-        int flag = 1;
-        for (int i = 0;i< n; i++) {
-            for (int j = 1; j < n; j++) {
-                if (board[0][i] == board[j][i]) {
-                    flag++;
-                }
-		else
+   public static int colcheck(int n, int[][] board) {
+   for(int i=0;i<n;i++)
+	{
+		int flag=1;
+		for(int j=1;j<n;j++)
 		{
-                 return 0;
-                }
-                if (flag == n) {
-                    return 1;
-                }
-            }
-        }
-        return 0;
-    }
+			if(board[0][i] == board[j][i])
+			{
+				flag++;
+			}
+			if(flag==n)
+			{
+				return 1;
+			}
+		}
+      }
+	return 0;
+
+
+}
 }
